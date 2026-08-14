@@ -1,0 +1,52 @@
+<nav class="h-30 justify-between gap-4 p-4 sm:flex">
+  <div class="flex justify-between gap-2">
+    <a href="/" class="font-bold">Pamela Rafalow Grossman</a>
+    <div class="relative sm:hidden">
+      <input
+        id="nav-checkbox"
+        type="checkbox"
+        class="absolute top-0 left-0 z-10 h-6 w-6 cursor-pointer opacity-0"
+      />
+      <svg
+        id="nav-open-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width={1.5}
+        stroke="currentColor"
+        class="absolute top-0 left-0 z-0 h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+      <svg
+        id="nav-close-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width={1.5}
+        stroke="currentColor"
+        class="absolute top-0 left-0 z-0 h-6 w-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"></path>
+      </svg>
+    </div>
+  </div>
+  <div id="expandable" class="flex flex-col sm:flex! sm:flex-row sm:gap-10">
+    <a href="/">Home</a>
+    <a href="/raise-a-glass">Raise a Glass</a>
+  </div>
+</nav>
+
+<style>
+  #nav-checkbox:not(:checked) ~ #nav-close-icon,
+  #nav-checkbox:checked ~ #nav-open-icon,
+  nav:has(#nav-checkbox:not(:checked)) #expandable {
+    display: none;
+  }
+</style>
