@@ -1,0 +1,43 @@
+---
+import Nav from "./Nav.astro";
+import "./styles/global.css";
+const byLine = "Pamela Rafalow Grossman";
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+---
+
+<html lang="en" class="text-lg">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `${title} | ${byLine}` : byLine}</title>
+  </head>
+  <body class="font-serif">
+    <div class="mx-auto max-w-3xl px-4">
+      <Nav />
+      <main>
+        <slot />
+      </main>
+      <footer class="my-10 text-center text-gray-600">
+        <p>&copy; 2026 Pamela Rafalow Grossman</p>
+        <p>
+          Site developed by <a
+            href="https://jacoblockwood.net"
+            class="underline">Jacob Lockwood</a
+          >
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
