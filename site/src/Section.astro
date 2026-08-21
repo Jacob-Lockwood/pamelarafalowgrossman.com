@@ -1,5 +1,6 @@
 ---
 import { getCollection } from "astro:content";
+import { PortableText } from "astro-portabletext";
 import { sections, type SectionValue } from "../../shared";
 interface Props {
   name: SectionValue;
@@ -17,13 +18,22 @@ const title = sections.find((s) => s.value === name)!.title;
     {
       articles.map((a) => (
         <li>
-          <a href={a.link} class="flex gap-4 text-gray-500">
+          <a
+            href={a.link}
+            target="_blank"
+            class="flex flex-wrap gap-x-4 text-gray-500"
+          >
             <p class="text-gray-800 underline underline-offset-2">{a.title}</p>
             <p>
               <em>{a.publicationName}</em>
             </p>
             <p>{a.publicationDate.toLocaleDateString()}</p>
           </a>
+          {a.notes && (
+            <div class="mt-1 ml-8 text-gray-600">
+              <PortableText value={a.notes} />
+            </div>
+          )}
         </li>
       ))
     }
